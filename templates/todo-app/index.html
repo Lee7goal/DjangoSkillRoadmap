@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo-List</title>
+</head>
+<body>
+    <div class="container">
+        <h2>待完成列表页</h2>
+        <ul>
+            {% for todo in obj %}
+                <li>{{ todo.short_text }} ----- {{ todo.created_at }} -----
+                {% if todo.is_finished %}
+                    已完成
+                {% else %}
+                    未完成
+                {% endif %}
+                </li>
+            {% empty %}
+                <p>暂时没有待办事项, 刷会抖音吧</p>
+            {% endfor %}
+
+        </ul>
+    </div>
+</body>
+
+<style>
+    .container {
+        width: 60%;
+        margin: 0 auto;
+    }
+</style>
+</html>
