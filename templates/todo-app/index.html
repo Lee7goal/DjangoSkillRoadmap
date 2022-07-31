@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo-List</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title%}
+    <title>待完成列表页</title>
+{% endblock %}
+{% block content %}
     <div class="container">
         <form action="{% url 'todo-index' %}" method="POST">
             {% csrf_token %}
@@ -13,15 +11,15 @@
             </label>
             <input type="submit" class="btn btn-primary" value="提交">
         </form>
-        <h2>待完成列表页</h2>
-        <ul>
+        <ul class="list-group">
             {% for todo in obj %}
-                <li>{{ todo.short_text }} ----- {{ todo.created_at }} -----
-                {% if todo.is_finished %}
-                    已完成
-                {% else %}
-                    <a href="{% url 'finish-todo' todo.id %}">未完成</a>
-                {% endif %}
+                <li class="list-group-item">
+                    {{ todo.short_text }} ----- {{ todo.created_at }} -----
+                    {% if todo.is_finished %}
+                        已完成
+                    {% else %}
+                        <a href="{% url 'finish-todo' todo.id %}">未完成</a>
+                    {% endif %}
                 </li>
             {% empty %}
                 <p>暂时没有待办事项, 刷会抖音吧</p>
@@ -29,12 +27,15 @@
 
         </ul>
     </div>
-</body>
+    <style>
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+    </style>
+{% endblock %}
 
-<style>
-    .container {
-        width: 60%;
-        margin: 0 auto;
-    }
-</style>
-</html>
+
+
+
