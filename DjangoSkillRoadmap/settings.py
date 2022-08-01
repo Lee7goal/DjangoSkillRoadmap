@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'account_manager.apps.AccountManagerConfig'
 ]
 
-LOGOUT_REDIRECT_URL = 'todo/'
+LOGOUT_REDIRECT_URL = 'frontend'
+LOGIN_REDIRECT_URL = 'todo-index'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

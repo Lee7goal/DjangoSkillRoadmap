@@ -8,8 +8,15 @@
     {% endblock %}
 </head>
 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/all.css' %}">
+<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon">
 <body>
-    {% include 'components/navbar.html' %}
+    <div class="wrapper">
+        <header>
+            {% include 'components/navbar.html' %}
+        </header>
+    </div>
+
     {% block content %}
     {% endblock %}
 </body>
