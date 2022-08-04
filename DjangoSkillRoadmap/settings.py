@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 LOGOUT_REDIRECT_URL = 'frontend'
 LOGIN_REDIRECT_URL = 'todo-index'
+AUTH_USER_MODEL = 'account_manager.AccountModel'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

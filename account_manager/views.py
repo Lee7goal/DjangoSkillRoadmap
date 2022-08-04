@@ -1,1 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views import View
+from django.contrib.auth import authenticate, login, logout
+
+from account_manager.forms import LoginForm
+
+
+class AccountLoginView(View):
+    def get(self, request, *args, **kwargs):
+        print(1)
+        login_form = LoginForm()
+        print(login_form)
+        return render(request, 'account/login.html', {'form': login_form})
+
+    def post(self, request, *args, **kwargs):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request, user)
+            return redirect('todo-index')
