@@ -19,7 +19,7 @@
             <span class="user-info">
                 {% if request.user.is_authenticated %}
                     {{ user }}
-                    <span>
+                    <span class="logout">
                         <a href="{% url 'logout' %}">退出</a>
                     </span>
                 {% else %}

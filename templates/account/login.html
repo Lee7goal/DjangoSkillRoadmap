@@ -1,23 +1,41 @@
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+{% extends 'base.html' %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-{{ form }}
+{% block content %}
 
-<input type="submit" value="login">
+    <div class="container  app-container">
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
 
-</form>
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+            {% else %}
+                <p>Please login to see this page.</p>
+            {% endif %}
+        {% endif %}
 
-{# Assumes you set up the password_reset view in your URLconf #}
-{#<p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">用户名</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">密码</label>
+                {{ form.password }}
+            </div>
+
+            <input type="submit" value="login" class="btn btn-primary">
+
+        </form>
+
+        {# Assumes you set up the password_reset view in your URLconf #}
+        {#<p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
+    </div>
+
+
+{% endblock %}
+
