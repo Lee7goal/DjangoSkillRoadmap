@@ -31,8 +31,11 @@ Applications junior's should know how to build
 I can learn a lot about what someone is capable of based on the projects they build. Below I will list a few projects juniors should build and why. Each project has a different level of functionality that a junior should be capable of building out with just the Django docs, stack overflow and the occasional google search, just no following a tutorial. The occasional search for some source code on GitHub is also ok, I just want to make sure you’re building and not copying.
 
 To Do App — I always recommend everyone start with some basic CRUD application to learn how to setup an app and work with the database. Challenge yourself and add authentication and user permissions. Try building it twice, one with function based views and one with class based views.
+
 Ecommerce website — Along with basic CRUD and Authentication that most eCommerce site’s will need, you’ll learn more about complex database relationships when it comes to adding Products, Orders, Tags and more. Building an eCommerce site will teach you a lot about designing your models and complex queries. Let’s also add search, pagination and user roles to that equation.
+
 Social Network — A social network will also force you to learn about designing your database. For example, how would you build out the “friends” or “following” feature’s? What about likes and determining what post a user will see in their feed.
+
 You’ll learn a lot by building these projects out but please don’t think that you’ll need to spend months building them. Try the “To Do” app and start applying for jobs, then learn as you go.
 
 Getting into the technical details
